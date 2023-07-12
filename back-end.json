@@ -1,0 +1,29 @@
+{
+  "alerts-school": [
+    {
+      "id": "sdasdfdsdfasdasdd",
+      "turma": "1º e 2º Ano",
+      "title": "Amanha 13/07/2022 não havera aula",
+      "description": "A escola vai estar fechada amanhã pois amanhã todos os professores vaão fazer um passeio para maldivas"
+    },
+
+    {
+      "id": "asfsafsafassdffvxfv",
+      "turma": "3º e 4º Ano",
+      "title": "Amanha 13/07/2022 não havera aula",
+      "description": "A escola vai estar fechada amanhã pois amanhã todos os professores vaão fazer um passeio para maldivas"
+    }
+  ],
+
+  "employees": [
+    {
+      "id": "1",
+      "name": "João Marcelo Lima Oliveira",
+      "age": 18,
+      "office": "Agent ADM.",
+      "email": "joaomarcelolimaoliveira0@gmail.com",
+      "telephone": "(11) 9 9999-9999",
+      "photo": "https://avatars.githubusercontent.com/u/117828396?v=4"
+    }
+  ]
+}

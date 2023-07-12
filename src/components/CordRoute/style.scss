@@ -1,0 +1,40 @@
+.cards-routs.flex-row {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 10px;
+  flex-direction: column !important;
+  justify-content: center;
+  margin: 10px;
+  padding: 12px;
+  width: 170px;
+  height: 150px;
+}
+
+.cards-routs.flex-row:hover {
+  transform: scale(1.03);
+}
+
+.animation {
+  animation: flutuante 3s infinite normal;
+}
+
+.cards-routs span {
+  font-weight: 600;
+  margin-top: 12px;
+  width: 100%;
+  text-align: center;
+}
+
+@keyframes flutuante {
+  0% {
+    transform: translateY(0px);
+    box-shadow: rgb(184, 23, 23) 0 5px 15px;
+  }
+  50% {
+    transform: translateY(3px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+

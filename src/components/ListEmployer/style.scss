@@ -1,0 +1,19 @@
+.content-employer-list.flex-row {
+  gap: 20px;
+}
+
+.content-employer-list img {
+  width: 15%;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+}
+
+.content-employer-list .employer-info h5 {
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.content-employer-list .employer-info p {
+  font-size: 14px;
+  color: #393baf;
+}
