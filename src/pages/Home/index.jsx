@@ -1,7 +1,7 @@
 import CardRoute from '../../components/CordRoute';
 import Header from '../../components/Header';
 import { FiAlertTriangle } from "react-icons/fi";
-import { BsFillFileEarmarkPersonFill, BsCalendar3 } from "react-icons/bs";
+import { BsFillFileEarmarkPersonFill, BsCalendar3, BsClock } from "react-icons/bs";
 import { FiImage } from "react-icons/fi";
 
 import './style.scss'
@@ -25,7 +25,6 @@ function Home() {
 
     if (countAlerts < data['alerts-school'].length) {
       setAnimation(true);
-      // setLocalSt();
     }
 
     setLocalSt();
@@ -64,6 +63,13 @@ function Home() {
             <CardRoute
               icon={<BsCalendar3 color="rgb(30, 85, 204)" size={30} />}
               title="Calendario escolar"
+              link="#"
+              disabled
+            />
+
+            <CardRoute
+              icon={<BsClock color="rgb(30, 85, 204)" size={30} />}
+              title="Horário de aulas"
               link="#"
               disabled
             />

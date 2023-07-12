@@ -23,6 +23,11 @@ function App() {
         path="/alerts"
         element={<Alerts />}
       />
+
+      <Route
+        path="*"
+        element={<Home />}
+      />
     </Routes>
   )
 }
