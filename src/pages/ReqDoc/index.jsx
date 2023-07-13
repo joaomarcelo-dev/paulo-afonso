@@ -5,11 +5,14 @@ import { formatPhoneNumber, formatCPF } from "../../utils/formatNumbers";
 
 import './style.scss';
 import requestServer from "../../utils/getServer";
+import useFetch from "../../hooks/useFetch";
+import Alert from "../../components/Alert";
 
 function ReqDoc() {
   const [name, setName] = useState('');
   const [cpf, setCPF] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
+  const [alert, setAlert] = useState('');
 
   const handleCPFChange = (event) => {
     const { value } = event.target;
@@ -31,14 +34,38 @@ function ReqDoc() {
     setPhoneNumber(formattedValue);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    requestServer('post-req-document', {
-      name,
-      cpf,
-      phone: phoneNumber,
-    })
+
+    try {
+      const response = await requestServer('post-req-document', {
+        name,
+        cpf,
+        phone: phoneNumber,
+      });
+  
+      setCPF('');
+      setName('');
+      setPhoneNumber('');
+      setAlert('success');
+    } catch (error) {
+      setAlert('error') 
+    }
+    
   }
+
+  fetch('https://backendschool.vercel.app/get-alerts', {
+    method: 'GET',
+    mode: 'cors',
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET',
+      'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
+    }
+  })
+  .then((response) => response.json())
+  .then((data) => console.log(data));
+  
 
   return (
     <>
@@ -115,7 +142,14 @@ function ReqDoc() {
           </button>
           
         </form>
-
+        {
+          alert === 'success' && (
+            <Alert
+              message="Solicitação enviada com sucesso!"
+              status="success"
+            />
+          )
+        }
       </div>
     </>
   )
