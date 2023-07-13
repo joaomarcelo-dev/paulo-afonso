@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom"
 import Login from "./pages/Login"
 import Home from "./pages/Home"
 import Alerts from "./pages/Alerts"
+import Calendar from "./pages/Calendar"
 
 function App() {
   return (
@@ -25,9 +26,14 @@ function App() {
       />
 
       <Route
+        path="/calendar"
+        element={<Calendar />}
+      />
+      <Route
         path="*"
         element={<Home />}
       />
+
     </Routes>
   )
 }

@@ -3,32 +3,35 @@ import Header from '../../components/Header';
 import { FiAlertTriangle } from "react-icons/fi";
 import { BsFillFileEarmarkPersonFill, BsCalendar3, BsClock } from "react-icons/bs";
 import { FiImage } from "react-icons/fi";
+import { MdEditDocument } from 'react-icons/md';
 
 import './style.scss'
 import { useEffect, useState } from 'react';
 import localSt from '../../utils/localSorage';
 import data from '../../../back-end.json';
 import ListEmployer from '../../components/ListEmployer';
+import { useSelector } from 'react-redux';
 
 function Home() {
   const [animation, setAnimation] = useState(false);
+  const alerts = useSelector((store) => store.data.alerts)
 
   useEffect(() => {
     document.title = 'Home'
     const countAlerts = localSt.getItem('countsAlerts');
 
-    const setLocalSt = () => localSt.setItem('countsAlerts', data['alerts-school'].length);
+    const setLocalSt = () => localSt.setItem('countsAlerts', alerts.length);
 
     if (countAlerts === null) {
       setLocalSt();
     }
 
-    if (countAlerts < data['alerts-school'].length) {
+    if (countAlerts < alerts.length) {
       setAnimation(true);
+      setLocalSt();
     }
 
-    setLocalSt();
-  }, [])
+  }, [alerts])
 
   return (
     <>
@@ -63,7 +66,7 @@ function Home() {
             <CardRoute
               icon={<BsCalendar3 color="rgb(30, 85, 204)" size={30} />}
               title="Calendario escolar"
-              link="#"
+              link="calendar"
               disabled
             />
 
@@ -73,9 +76,16 @@ function Home() {
               link="#"
               disabled
             />
+
+            <CardRoute
+              icon={<MdEditDocument color="rgb(30, 85, 204)" size={30} />}
+              title="Solicitar documentos"
+              link="#"
+              disabled
+            />
           </div>
         </section>
-        <section className="employees-list">
+        {/* <section className="employees-list">
           <h3>Lista de funcionairios:</h3>
 
           <div className="content-list-employees">
@@ -102,7 +112,7 @@ function Home() {
               ))
             }
           </div>
-        </section>
+        </section> */}
       </div>
     </>
   )

@@ -4,14 +4,14 @@ import PropTypes from 'prop-types';
 
 function CardRoute({ icon, title, link, disabled, animation }) {
   return (
-    <Link to={ link }>
+    <Link to={ link } className={
+        `link 
+        ${disabled ? 'disabled' : ''}
+        ${animation ? 'animation' : ''}
+        `
+      }>
       <div
-        className={
-          `cards-routs flex-row
-          ${disabled ? 'disabled' : ''}
-          ${animation ? 'animation' : ''}
-          `
-        }
+        className="cards-routs flex-row"
       >
         <span>
           { icon }

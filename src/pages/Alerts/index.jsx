@@ -1,10 +1,13 @@
 import Header from "../../components/Header";
 import './style.scss'
 import { GrCircleAlert } from 'react-icons/gr';
-import data from '../../../back-end.json';
 import Accordion from "../../components/Accordion";
+import { useSelector } from "react-redux";
+
 
 function Alerts() {
+  const alerts = useSelector((store) => store.data.alerts)
+
   return (
     <>
       <Header />
@@ -13,11 +16,12 @@ function Alerts() {
         <h3 className="flex-row">
             Avisos
             <span>
-              <GrCircleAlert color='white' />
+              <GrCircleAlert color="red" />
             </span>
           </h3>
+          <p>Está pagina lhe oferece as informações gerais e avisos presentes na escola.</p>
 
-          <Accordion alerts={data['alerts-school']} />
+          <Accordion alerts={ alerts } />
         </section>
       </div>
     </>
