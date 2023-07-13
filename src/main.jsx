@@ -1,13 +1,16 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import './index.css'
-import './global/global.scss'
-import { BrowserRouter } from 'react-router-dom'
-import { Provider } from 'react-redux'
+import './index.css';
 
-import 'bootstrap';
-import store from './redux/store.js'
+import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App.jsx';
+
+import store from './redux/store.js';
+
+import './global/global.scss';
+import * as bootstrap from 'bootstrap';
 
 import dataStore from './services/dataStore.js'
 

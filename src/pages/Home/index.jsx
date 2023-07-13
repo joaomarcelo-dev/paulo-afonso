@@ -80,8 +80,8 @@ function Home() {
             <CardRoute
               icon={<MdEditDocument color="rgb(30, 85, 204)" size={30} />}
               title="Solicitar documentos"
-              link="#"
-              disabled
+              link="/request-document"
+              // disabled
             />
           </div>
         </section>

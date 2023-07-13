@@ -3,6 +3,7 @@ import Login from "./pages/Login"
 import Home from "./pages/Home"
 import Alerts from "./pages/Alerts"
 import Calendar from "./pages/Calendar"
+import ReqDoc from "./pages/ReqDoc"
 
 function App() {
   return (
@@ -29,6 +30,12 @@ function App() {
         path="/calendar"
         element={<Calendar />}
       />
+
+      <Route
+        path="/request-document"
+        element={<ReqDoc />}
+      />
+
       <Route
         path="*"
         element={<Home />}
