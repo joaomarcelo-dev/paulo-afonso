@@ -13,6 +13,7 @@ function ReqDoc() {
   const [cpf, setCPF] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [alert, setAlert] = useState('');
+  const [document, setDocument] = useState('');
 
   const handleCPFChange = (event) => {
     const { value } = event.target;
@@ -42,6 +43,7 @@ function ReqDoc() {
         name,
         cpf,
         phone: phoneNumber,
+        document,
       });
   
       setCPF('');
@@ -53,19 +55,6 @@ function ReqDoc() {
     }
     
   }
-
-  fetch('https://backendschool.vercel.app/get-alerts', {
-    method: 'GET',
-    mode: 'cors',
-    headers: {
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Methods': 'GET',
-      'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
-    }
-  })
-  .then((response) => response.json())
-  .then((data) => console.log(data));
-  
 
   return (
     <>
@@ -94,6 +83,22 @@ function ReqDoc() {
               onChange={(e) => {handleNameChange(e)}}
             />
             <div id="emailHelp" className="form-text">Vireifique se o nome está correto.</div>
+          </div>
+
+          <div className="mb-4">
+            <label for="exampleInputEmail1" className="form-label">Documento desejado:</label>
+            <select
+              class="form-select"
+              aria-label="Default select example"
+              defaultValue="null"
+              onChange={({ target: { value } }) => setDocument(value) }
+            >
+              <option selected>Selecione o documento</option>
+              <option value="1">Declaração de escolaridade</option>
+              {/* <option value="2">Two</option>
+              <option value="3">Three</option> */}
+            </select>
+            <div id="emailHelp" className="form-text">Selecione o documento que você deseja</div>
           </div>
 
           <div className="mb-4">
@@ -136,17 +141,22 @@ function ReqDoc() {
           <button
             type="submit"
             className="btn btn-primary"
-            disabled={!name || cpf.length < 14 || phoneNumber.length < 15}
+            disabled={!name || cpf.length < 14 || phoneNumber.length < 15 || !document}
           >
             Solicitar documento
           </button>
           
         </form>
         {
-          alert === 'success' && (
+          alert === 'success' ? (
             <Alert
               message="Solicitação enviada com sucesso!"
               status="success"
+            />
+          ) : alert === 'error' && (
+            <Alert
+              message="Erro ao processar a solicitação. Tente novamente!"
+              status="danger"
             />
           )
         }
