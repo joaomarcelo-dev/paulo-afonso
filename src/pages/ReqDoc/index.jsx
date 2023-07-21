@@ -150,7 +150,7 @@ function ReqDoc() {
         {
           alert === 'success' ? (
             <Alert
-              message="Solicitação enviada com sucesso!"
+              message="Solicitação enviada com sucesso! Por favor aguarde até que alguém lhe mande a resposta via WhatsApp. Obrigado!"
               status="success"
             />
           ) : alert === 'error' && (
