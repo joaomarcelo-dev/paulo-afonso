@@ -1,6 +1,6 @@
-// const endpoint = 'http://localhost:3333/'
+const endpoint = 'http://localhost:3333/'
 // const endpoint = 'https://backendschool.vercel.app/'
-const endpoint = 'https://backend-school.fly.dev/'
+// const endpoint = 'https://backend-school.fly.dev/'
 
 import axios from 'axios'
 
